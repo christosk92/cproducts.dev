@@ -18,7 +18,7 @@ export function ProductDetail({ product, relatedPosts = [] }: Props) {
           href="/#work"
           className="font-mono tabular text-sm text-muted hover:text-accent inline-flex items-center gap-2 mb-12"
         >
-          <span>←</span> all work
+          <span>{"<-"}</span> all work
         </Link>
 
         <div className="grid gap-12 lg:grid-cols-12">
@@ -62,7 +62,7 @@ export function ProductDetail({ product, relatedPosts = [] }: Props) {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background hover:bg-accent transition-colors text-sm font-medium"
                 >
                   Visit site
-                  <span>↗</span>
+                  <span>{"->"}</span>
                 </a>
               )}
               {product.repo && (
@@ -73,7 +73,7 @@ export function ProductDetail({ product, relatedPosts = [] }: Props) {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-rule-soft hover:border-accent hover:text-accent transition-colors text-sm font-medium"
                 >
                   GitHub
-                  <span>↗</span>
+                  <span>{"->"}</span>
                 </a>
               )}
             </div>
@@ -204,7 +204,7 @@ export function ProductDetail({ product, relatedPosts = [] }: Props) {
               href="/blog"
               className="font-mono tabular text-sm text-muted hover:text-accent transition-colors"
             >
-              all posts →
+              all posts -&gt;
             </Link>
           </div>
           <ul className="divide-y divide-rule-soft border-t border-b border-rule-soft">

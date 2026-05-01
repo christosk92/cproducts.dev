@@ -15,7 +15,7 @@ export function Header() {
             href="/#work"
             className="hover:text-accent transition-colors"
           >
-            <span className="text-muted">↗</span> work
+            work
           </Link>
           <Link
             href="/blog"

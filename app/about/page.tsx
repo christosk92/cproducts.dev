@@ -38,6 +38,19 @@ export default function AboutPage() {
         </p>
 
         <p>
+          Outside cproducts, I work full-time as a Senior Software Engineer at{" "}
+          <a
+            href="https://isoplanner.app"
+            className="text-foreground underline decoration-rule-soft underline-offset-4 hover:decoration-accent"
+          >
+            ISOPlanner
+          </a>
+          , a SaaS product for ISO compliance, audits, tasks, documents, and operational
+          workflows. That is professional work rather than a cproducts project, but it is
+          part of the same day-to-day product engineering context.
+        </p>
+
+        <p>
           For product questions, collaboration, or something technical that needs a straight
           answer, email{" "}
           <a

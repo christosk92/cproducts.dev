@@ -35,7 +35,9 @@ export function ProductCard({ product }: { product: Product }) {
 
           <div className="pt-4 inline-flex items-center gap-2 text-sm font-mono tabular text-muted group-hover:text-accent transition-colors">
             <span>read more</span>
-            <span className="transition-transform group-hover:translate-x-1">→</span>
+            <span className="transition-transform group-hover:translate-x-1">
+              {"->"}
+            </span>
           </div>
         </div>
 

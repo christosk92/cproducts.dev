@@ -49,7 +49,7 @@ export default async function BlogPostPage({
         href="/blog"
         className="font-mono tabular text-sm text-muted hover:text-accent inline-flex items-center gap-2 mb-12"
       >
-        <span>←</span> all writing
+        <span>{"<-"}</span> all writing
       </Link>
 
       <header className="space-y-5 mb-12 pb-12 border-b border-rule-soft">

@@ -28,7 +28,7 @@ export default function ContactPage() {
             className="inline-flex items-center gap-3 font-display text-3xl sm:text-4xl tracking-tight italic text-accent underline decoration-rule-soft underline-offset-8 hover:decoration-accent"
           >
             {site.email}
-            <span className="not-italic">↗</span>
+            <span className="not-italic">{"->"}</span>
           </a>
         </div>
 
