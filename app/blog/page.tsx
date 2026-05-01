@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 import { buildMetadata } from "@/lib/seo";
+import { PostProductChips } from "@/components/PostProductChips";
 
 export const metadata = buildMetadata({
   title: "Writing",
@@ -42,11 +43,12 @@ export default async function BlogIndex() {
                     year: "numeric",
                   })}
                 </span>
-                <div className="sm:col-span-10 space-y-1">
+                <div className="sm:col-span-10 space-y-2">
                   <div className="font-display text-3xl tracking-tight">{p.title}</div>
                   {p.summary && (
                     <div className="text-muted leading-relaxed">{p.summary}</div>
                   )}
+                  <PostProductChips products={p.products} className="pt-1" />
                 </div>
               </Link>
             </li>

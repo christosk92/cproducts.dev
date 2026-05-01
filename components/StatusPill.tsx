@@ -5,6 +5,8 @@ const colors: Record<ProductStatus, string> = {
   beta: "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30",
   "in development":
     "bg-sky-500/15 text-sky-700 dark:text-sky-300 border-sky-500/30",
+  postponed:
+    "bg-zinc-500/15 text-zinc-700 dark:text-zinc-300 border-zinc-500/30",
 };
 
 export function StatusPill({ status }: { status: ProductStatus }) {

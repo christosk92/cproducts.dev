@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ProductDetail } from "@/components/ProductDetail";
 import { productBySlug } from "@/lib/products";
+import { getPostsForProduct } from "@/lib/blog";
 import { buildMetadata } from "@/lib/seo";
 
 const product = productBySlug("lolreview");
@@ -13,7 +14,8 @@ export const metadata = product
     })
   : buildMetadata();
 
-export default function LolReviewPage() {
+export default async function LolReviewPage() {
   if (!product) notFound();
-  return <ProductDetail product={product} />;
+  const relatedPosts = await getPostsForProduct("lolreview");
+  return <ProductDetail product={product} relatedPosts={relatedPosts} />;
 }

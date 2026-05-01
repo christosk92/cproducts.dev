@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
+import type { Post } from "@/lib/blog";
 import { TechTag } from "./TechTag";
 import { StatusPill } from "./StatusPill";
 
-export function ProductDetail({ product }: { product: Product }) {
+type Props = {
+  product: Product;
+  relatedPosts?: Post[];
+};
+
+export function ProductDetail({ product, relatedPosts = [] }: Props) {
   return (
     <article>
       <section className="max-w-7xl mx-auto px-6 sm:px-10 pt-16 pb-12">
@@ -17,11 +23,16 @@ export function ProductDetail({ product }: { product: Product }) {
 
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <span className="font-mono tabular text-sm text-muted">
                 {product.number} / cproducts
               </span>
               <StatusPill status={product.status} />
+              {product.version && (
+                <span className="font-mono tabular text-xs text-muted">
+                  v{product.version}
+                </span>
+              )}
             </div>
 
             <h1 className="font-display text-6xl sm:text-7xl tracking-tight leading-[0.95]">
@@ -81,6 +92,32 @@ export function ProductDetail({ product }: { product: Product }) {
         </div>
       </section>
 
+      {product.overview && product.overview.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 sm:px-10 py-16 border-t border-rule-soft">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <div className="font-mono tabular text-xs text-muted uppercase tracking-widest sticky top-24">
+                The story
+              </div>
+            </div>
+            <div className="lg:col-span-8 space-y-6 max-w-2xl">
+              {product.overview.map((para, i) => (
+                <p
+                  key={i}
+                  className={
+                    i === 0
+                      ? "font-display text-3xl sm:text-4xl tracking-tight leading-[1.1]"
+                      : "text-lg leading-relaxed text-foreground/90"
+                  }
+                >
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="max-w-7xl mx-auto px-6 sm:px-10 py-16 border-t border-rule-soft">
         <div className="flex items-baseline justify-between mb-10">
           <h2 className="font-display text-4xl tracking-tight">What it does</h2>
@@ -88,7 +125,7 @@ export function ProductDetail({ product }: { product: Product }) {
             {String(product.features.length).padStart(2, "0")} highlights
           </span>
         </div>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {product.features.map((f, i) => (
             <div key={f.title} className="space-y-3">
               <div className="font-mono tabular text-xs text-muted">
@@ -127,6 +164,73 @@ export function ProductDetail({ product }: { product: Product }) {
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {product.requirements && product.requirements.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 sm:px-10 py-16 border-t border-rule-soft">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <h2 className="font-display text-4xl tracking-tight">
+                Requirements
+              </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <ul className="divide-y divide-rule-soft border-t border-b border-rule-soft">
+                {product.requirements.map((req, i) => (
+                  <li
+                    key={req}
+                    className="grid grid-cols-[auto_1fr] gap-6 py-4 items-baseline"
+                  >
+                    <span className="font-mono tabular text-xs text-muted">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-lg">{req}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {relatedPosts.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 sm:px-10 py-16 border-t border-rule-soft">
+          <div className="flex items-baseline justify-between mb-10">
+            <h2 className="font-display text-4xl tracking-tight">
+              Related writing
+            </h2>
+            <Link
+              href="/blog"
+              className="font-mono tabular text-sm text-muted hover:text-accent transition-colors"
+            >
+              all posts →
+            </Link>
+          </div>
+          <ul className="divide-y divide-rule-soft border-t border-b border-rule-soft">
+            {relatedPosts.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="grid gap-2 sm:grid-cols-12 sm:gap-6 py-6 hover:bg-surface-2 -mx-3 px-3 rounded-md transition-colors"
+                >
+                  <span className="sm:col-span-2 font-mono tabular text-xs text-muted self-start mt-1">
+                    {new Date(p.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "2-digit",
+                      year: "numeric",
+                    })}
+                  </span>
+                  <span className="sm:col-span-7 font-display text-2xl tracking-tight">
+                    {p.title}
+                  </span>
+                  <span className="sm:col-span-3 text-sm text-muted">
+                    {p.summary}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </article>

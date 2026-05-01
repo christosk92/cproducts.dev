@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllSlugs, getPost } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx";
+import { PostProductChips } from "@/components/PostProductChips";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -52,8 +53,11 @@ export default async function BlogPostPage({
       </Link>
 
       <header className="space-y-5 mb-12 pb-12 border-b border-rule-soft">
-        <div className="font-mono tabular text-xs text-muted uppercase tracking-widest">
-          {formattedDate}
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="font-mono tabular text-xs text-muted uppercase tracking-widest">
+            {formattedDate}
+          </span>
+          <PostProductChips products={post.products} />
         </div>
         <h1 className="font-display text-5xl sm:text-6xl tracking-tight leading-[0.95]">
           {post.title}

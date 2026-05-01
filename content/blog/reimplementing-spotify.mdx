@@ -1,0 +1,30 @@
+---
+title: "On reimplementing Spotify, in public."
+date: "2026-04-20"
+summary: "Why Wavee is a clean-room build of Spotify's protocols, not a fork or a wrapper."
+products: ["wavee"]
+---
+
+There is a long tradition of unofficial Spotify clients. Most of them are wrappers — they take the official desktop client, repackage it, and add features around the edges. A few are forks of older third-party libraries that have been quietly rotting since the last protocol change broke them.
+
+Wavee is neither. It is a **clean-room reimplementation** of Spotify's own protocols — Access Point, Connect, Mercury, and the metadata APIs — written from scratch against observed wire behaviour, with no Spotify SDK or proprietary code in the tree.
+
+## Why bother
+
+The official desktop client works. So why spend months building a parallel implementation?
+
+A few reasons, in roughly the order I think about them:
+
+1. **The official client doesn't feel like a Windows app.** It's the website wrapped in Chromium. That's fine; it's not what I want.
+2. **An open protocol stack lets you build things the official client can't.** A 10-band parametric EQ, on-device AI on Copilot+, custom Connect targets, scripting hooks — none of these are possible if you're rendering the same React app Spotify ships.
+3. **Reverse-engineering protocols is interesting work.** Shannon ciphers, Mercury request multiplexing, the access point handshake — these are the kind of problems I want to be doing on a Saturday.
+
+## What "clean room" means here
+
+It means I have not shipped any code from Spotify's clients, public or otherwise. Where the protocol behaviour was unclear, the answer was always "open Wireshark" not "look at their source." This matters legally, but it also matters for the longevity of the project — code that depends on a leaked binary tends to die when the binary changes.
+
+The protocols themselves aren't secret in any meaningful sense; they've been documented across a dozen open-source projects over the last decade. What Wavee adds is a current, working, .NET-native implementation tied to a real WinUI 3 app.
+
+## Where it goes from here
+
+Wavee is in beta. The protocol stack is solid; the UI is where most of the iteration happens now. If any of this sounds interesting — or if you find a bug — the repo is the place to be.
