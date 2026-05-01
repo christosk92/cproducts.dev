@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeroEditorial } from "@/components/HeroEditorial";
 import { ProductCard } from "@/components/ProductCard";
@@ -56,9 +57,18 @@ export default async function HomePage() {
                   </span>
                 </div>
 
-                <h3 className="font-display text-5xl sm:text-6xl tracking-tight group-hover:text-accent transition-colors">
-                  ISOPlanner
-                </h3>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/products/isoplanner/icon.png"
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="size-14 sm:size-16"
+                  />
+                  <h3 className="font-display text-5xl sm:text-6xl tracking-tight group-hover:text-accent transition-colors">
+                    ISOPlanner
+                  </h3>
+                </div>
 
                 <p className="text-lg text-muted leading-relaxed max-w-md">
                   Full-time product engineering on a production SaaS platform for
@@ -86,35 +96,37 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              <dl className="lg:col-span-7 grid gap-6 sm:grid-cols-3 lg:pt-12">
-                <div className="border-t border-rule-soft pt-4">
-                  <dt className="font-mono tabular text-xs text-muted uppercase tracking-widest mb-3">
-                    Product
-                  </dt>
-                  <dd className="text-base leading-relaxed text-foreground/90">
-                    Compliance management software for companies working with ISO
-                    standards and certification processes.
-                  </dd>
-                </div>
-                <div className="border-t border-rule-soft pt-4">
-                  <dt className="font-mono tabular text-xs text-muted uppercase tracking-widest mb-3">
-                    Role
-                  </dt>
-                  <dd className="text-base leading-relaxed text-foreground/90">
-                    Building and maintaining backend services, frontend flows,
-                    integrations, and production features.
-                  </dd>
-                </div>
-                <div className="border-t border-rule-soft pt-4">
-                  <dt className="font-mono tabular text-xs text-muted uppercase tracking-widest mb-3">
-                    Context
-                  </dt>
-                  <dd className="text-base leading-relaxed text-foreground/90">
-                    Professional full-time work, separate from the independent
-                    products listed above.
-                  </dd>
-                </div>
-              </dl>
+              <div className="lg:col-span-7 lg:pt-12">
+                <dl className="grid gap-6 sm:grid-cols-3">
+                  <div className="border-t border-rule-soft pt-4">
+                    <dt className="font-mono tabular text-xs text-muted uppercase tracking-widest mb-3">
+                      Product
+                    </dt>
+                    <dd className="text-base leading-relaxed text-foreground/90">
+                      Compliance management software for companies working with ISO
+                      standards and certification processes.
+                    </dd>
+                  </div>
+                  <div className="border-t border-rule-soft pt-4">
+                    <dt className="font-mono tabular text-xs text-muted uppercase tracking-widest mb-3">
+                      Role
+                    </dt>
+                    <dd className="text-base leading-relaxed text-foreground/90">
+                      Building and maintaining backend services, frontend flows,
+                      integrations, and production features.
+                    </dd>
+                  </div>
+                  <div className="border-t border-rule-soft pt-4">
+                    <dt className="font-mono tabular text-xs text-muted uppercase tracking-widest mb-3">
+                      Context
+                    </dt>
+                    <dd className="text-base leading-relaxed text-foreground/90">
+                      Professional full-time work, separate from the independent
+                      products listed above.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             </div>
           </a>
         </div>
