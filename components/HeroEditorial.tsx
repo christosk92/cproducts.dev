@@ -15,32 +15,32 @@ export function HeroEditorial() {
         >
           <div className="flex items-center gap-3 text-xs font-mono tabular text-muted uppercase tracking-widest">
             <span className="block size-2 rounded-full bg-accent" />
-            <span>cproducts · est. Utrecht</span>
+            <span>cproducts / Utrecht</span>
           </div>
 
           <h1 className="font-display text-[clamp(3rem,9vw,9rem)] leading-[0.95] tracking-tight max-w-5xl">
-            Software for{" "}
-            <span className="italic text-accent">things that</span>
+            Building apps{" "}
+            <span className="italic text-accent">I actually</span>
             <br />
-            should exist.
+            wanted to use.
           </h1>
 
           <p className="max-w-xl text-lg sm:text-xl text-muted leading-relaxed">
-            An indie studio of one, building small, sharp products. Currently shipping{" "}
+            I build small products from Utrecht. Right now I am working on{" "}
             <Link
               href="/work/wavee"
               className="text-foreground underline decoration-rule-soft underline-offset-4 hover:decoration-accent"
             >
-              a Spotify client
+              a native Spotify client
             </Link>{" "}
-            and{" "}
+            and keeping{" "}
             <Link
               href="/work/lolreview"
               className="text-foreground underline decoration-rule-soft underline-offset-4 hover:decoration-accent"
             >
-              a coaching marketplace
+              a League review tool
             </Link>
-            .
+            {" "}archived for later.
           </p>
 
           <div className="flex items-center gap-3 pt-4 text-sm text-muted">
@@ -49,7 +49,7 @@ export function HeroEditorial() {
               className="font-mono tabular hover:text-accent transition-colors flex items-center gap-2"
             >
               <span className="inline-block w-8 h-px bg-current" />
-              scroll · work
+              scroll / work
             </Link>
           </div>
         </motion.div>

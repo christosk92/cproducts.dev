@@ -1,30 +1,38 @@
 ---
 title: "On reimplementing Spotify, in public."
 date: "2026-04-20"
-summary: "Why Wavee is a clean-room build of Spotify's protocols, not a fork or a wrapper."
+summary: "Why Wavee talks to Spotify itself instead of wrapping the official app."
 products: ["wavee"]
 ---
 
-There is a long tradition of unofficial Spotify clients. Most of them are wrappers — they take the official desktop client, repackage it, and add features around the edges. A few are forks of older third-party libraries that have been quietly rotting since the last protocol change broke them.
+Most unofficial Spotify clients are wrappers.
 
-Wavee is neither. It is a **clean-room reimplementation** of Spotify's own protocols — Access Point, Connect, Mercury, and the metadata APIs — written from scratch against observed wire behaviour, with no Spotify SDK or proprietary code in the tree.
+They take the official desktop client, repackage it, and add stuff around it. That can work, but it is still the same app underneath. A few others use old third-party libraries that slowly break every time Spotify changes something.
+
+Wavee is not that. It is a **clean-room reimplementation** of Spotify's own protocols: Access Point, Connect, Mercury, and the metadata APIs. It is written from scratch by watching what the clients do on the wire. No Spotify SDK, no copied client code, nothing like that.
 
 ## Why bother
 
-The official desktop client works. So why spend months building a parallel implementation?
+The official desktop client works.
 
-A few reasons, in roughly the order I think about them:
+So yeh, fair question: why spend months building another one?
 
-1. **The official client doesn't feel like a Windows app.** It's the website wrapped in Chromium. That's fine; it's not what I want.
-2. **An open protocol stack lets you build things the official client can't.** A 10-band parametric EQ, on-device AI on Copilot+, custom Connect targets, scripting hooks — none of these are possible if you're rendering the same React app Spotify ships.
-3. **Reverse-engineering protocols is interesting work.** Shannon ciphers, Mercury request multiplexing, the access point handshake — these are the kind of problems I want to be doing on a Saturday.
+The short version is that I wanted control over the stack.
+
+1. **The official client does not feel like a Windows app.** It feels like the website in Chromium. Thats fine, but it is not what I want to use.
+2. **Owning the protocol stack lets me build different things.** A 10-band EQ, on-device AI on Copilot+ PCs, custom Connect targets, scripting hooks, all of that gets way harder if the real app is still Spotify's React app.
+3. **The protocol work is just interesting.** Shannon ciphers, Mercury requests, access point handshakes, weird edge cases that only show up after hours of testing. That is the fun part.
 
 ## What "clean room" means here
 
-It means I have not shipped any code from Spotify's clients, public or otherwise. Where the protocol behaviour was unclear, the answer was always "open Wireshark" not "look at their source." This matters legally, but it also matters for the longevity of the project — code that depends on a leaked binary tends to die when the binary changes.
+It means I have not shipped code from Spotify's clients, public or otherwise.
 
-The protocols themselves aren't secret in any meaningful sense; they've been documented across a dozen open-source projects over the last decade. What Wavee adds is a current, working, .NET-native implementation tied to a real WinUI 3 app.
+When something was unclear, the answer was "open Wireshark" or "test another client", not "look at their source." That matters legally, but it also matters because code built on leaked stuff usually dies the second the binary changes.
+
+The protocols are not really secret anyway. People have documented parts of them for years. What Wavee adds is a current .NET implementation that is tied to an actual WinUI 3 app, not just a library demo.
 
 ## Where it goes from here
 
-Wavee is in beta. The protocol stack is solid; the UI is where most of the iteration happens now. If any of this sounds interesting — or if you find a bug — the repo is the place to be.
+Wavee is still in development. The protocol stack is in a good spot now, so most of the work is UI, polish, and fixing the annoying edge cases.
+
+If that sounds interesting, or if you find a bug, the repo is the place to be.

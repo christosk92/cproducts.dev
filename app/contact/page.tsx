@@ -20,8 +20,8 @@ export default function ContactPage() {
       <div className="space-y-10 max-w-2xl">
         <div className="space-y-3">
           <p className="text-lg text-muted leading-relaxed">
-            The fastest way to reach me is email. I read everything; I reply when there's
-            something worth saying back.
+            Email is the fastest way to reach me. I read everything and reply when I
+            have a useful answer.
           </p>
           <a
             href={`mailto:${site.email}`}

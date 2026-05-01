@@ -14,7 +14,7 @@ export function buildMetadata({
   path = "/",
   ogImage,
 }: SeoArgs = {}): Metadata {
-  const fullTitle = title ? `${title} — ${site.name}` : site.name;
+  const fullTitle = title ? `${title} | ${site.name}` : site.name;
   const desc = description ?? site.description;
   const url = `${site.url}${path}`;
   const image = ogImage ?? `${site.url}/og?title=${encodeURIComponent(title ?? site.name)}`;

@@ -20,8 +20,8 @@ export default function PrivacyPage() {
       <div className="space-y-6 text-lg leading-relaxed text-foreground/90">
         <p>
           This policy covers <strong>{site.url.replace(/^https?:\/\//, "")}</strong>, operated by{" "}
-          {site.legalName} (KvK {site.kvk}, BTW {site.btw}, {site.city}). It does not cover the
-          individual products linked from this site — each has its own policy.
+          {site.legalName} (KvK {site.kvk}, BTW {site.btw}, {site.city}). Individual
+          products linked from this site have their own policies.
         </p>
 
         <h2 className="font-display text-2xl mt-10">What we collect</h2>
@@ -41,10 +41,10 @@ export default function PrivacyPage() {
           are not joined with any other data we hold.
         </p>
 
-        <h2 className="font-display text-2xl mt-10">What we don't do</h2>
+        <h2 className="font-display text-2xl mt-10">What we do not do</h2>
         <p>
           We do not run advertising trackers, fingerprinting, A/B testing, or any third-party
-          analytics beyond what's listed above. We do not sell or share any data.
+          analytics beyond what is listed above. We do not sell or share any data.
         </p>
 
         <h2 className="font-display text-2xl mt-10">Email</h2>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
           >
             {site.email}
           </a>
-          , we keep that correspondence as long as it's useful and delete it when it isn't.
+          , we keep that correspondence as long as it is useful and delete it when it is not.
         </p>
 
         <h2 className="font-display text-2xl mt-10">Your rights</h2>
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           >
             {site.email}
           </a>{" "}
-          and we'll respond within 30 days.
+          and we will respond within 30 days.
         </p>
 
         <p className="text-sm text-muted pt-8 border-t border-rule-soft">

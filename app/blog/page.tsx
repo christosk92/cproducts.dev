@@ -5,7 +5,7 @@ import { PostProductChips } from "@/components/PostProductChips";
 
 export const metadata = buildMetadata({
   title: "Writing",
-  description: "Notes on building cproducts.",
+  description: "Notes on cproducts builds.",
   path: "/blog",
 });
 
@@ -19,10 +19,10 @@ export default async function BlogIndex() {
           Writing
         </div>
         <h1 className="font-display text-6xl sm:text-7xl tracking-tight leading-[0.95]">
-          Notes from the desk.
+          Build notes.
         </h1>
         <p className="text-lg text-muted max-w-xl">
-          Occasional writing on the products, the protocols beneath them, and the work itself.
+          Short notes on the products, the protocol work, and decisions worth writing down.
         </p>
       </header>
 

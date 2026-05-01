@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "About",
-  description: "About cproducts.",
+  description: "About the person behind cproducts.",
   path: "/about",
 });
 
@@ -14,34 +14,32 @@ export default function AboutPage() {
         About
       </div>
       <h1 className="font-display text-6xl sm:text-7xl tracking-tight leading-[0.95] mb-10">
-        An indie studio of one,{" "}
-        <span className="italic text-accent">making things on purpose.</span>
+        A one-person studio in Utrecht,{" "}
+        <span className="italic text-accent">building products I actually use.</span>
       </h1>
 
       <div className="space-y-6 text-lg leading-relaxed text-foreground/90 max-w-2xl">
         <p>
-          cproducts is the umbrella for the products I build out of {site.city}. The studio is
-          deliberately small — one person, two products, no roadmap committee. The goal is to
-          ship things that should exist and that I'd want to use.
+          cproducts is where I put the products I build from {site.city}. It is one
+          person, two projects, and no formal roadmap. I work on the parts that feel
+          worth solving, then ship when they are usable.
         </p>
 
         <p>
-          Today that means <strong>Wavee</strong>, an open-source Spotify desktop client for
-          Windows reimplemented from the protocols up, and <strong>LOL Review</strong>, an
-          asynchronous coaching marketplace that pairs ranked players with verified
-          high-elo coaches.
+          Right now that means <strong>Wavee</strong>, an open-source Spotify desktop
+          client for Windows that is still in development, and <strong>LOL Review</strong>,
+          a League of Legends review tool that is archived and offline for now.
         </p>
 
         <p>
-          The work spans low-level protocol implementations, interface design, payments
-          infrastructure, and the occasional weekend rewrite. It's run as a registered Dutch
-          business (cproducts, KvK {site.kvk}, BTW {site.btw}) so contracts, invoices, and
-          payouts can all happen properly.
+          Most days, the work is protocol code, interface design, payments, and maintenance.
+          cproducts is a registered Dutch business (cproducts, KvK {site.kvk}, BTW{" "}
+          {site.btw}), so contracts, invoices, and payouts have a proper home.
         </p>
 
         <p>
-          If you want to talk about either product, a collaboration, or a technical question
-          you can't get a straight answer to elsewhere — drop a note at{" "}
+          For product questions, collaboration, or something technical that needs a straight
+          answer, email{" "}
           <a
             href={`mailto:${site.email}`}
             className="text-foreground underline decoration-rule-soft underline-offset-4 hover:decoration-accent"

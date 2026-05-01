@@ -27,16 +27,16 @@ export default function TermsPage() {
         <h2 className="font-display text-2xl mt-10">Content</h2>
         <p>
           The text and images on this site are © {new Date().getFullYear()} {site.legalName}{" "}
-          unless stated otherwise. You're welcome to link to any page. Quoting short passages
-          with attribution is fine. Wholesale copying isn't.
+          unless stated otherwise. You are welcome to link to any page. Quoting short passages
+          with attribution is fine. Wholesale copying is not.
         </p>
         <p>
-          The products described here have their own terms — see their respective sites.
+          The products described here have their own terms. See their respective sites.
         </p>
 
         <h2 className="font-display text-2xl mt-10">No warranty</h2>
         <p>
-          The site is provided as-is. We don't guarantee uptime or that everything is current,
+          The site is provided as-is. We do not guarantee uptime or that everything is current,
           accurate, or correct. If something is wrong, let us know at{" "}
           <a
             href={`mailto:${site.email}`}
